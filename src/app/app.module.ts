@@ -6,20 +6,36 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { MapaOcupacaoPage } from '../pages/mapa-ocupacao/mapa-ocupacao';
+import { AcomodacaoPage } from '../pages/acomodacao/acomodacao';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    MapaOcupacaoPage,
+    AcomodacaoPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {},
+      {
+        links: [
+          {component: HomePage, name: 'Home', segment: 'home'},
+          {component: MapaOcupacaoPage, name: 'MapaOcupacao', segment: 'mapa-ocupacao'},
+          {component: AcomodacaoPage, name: 'Acomodacao', segment: 'acomodacao/:descricao'},
+        ]
+      }
+    ),
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    MapaOcupacaoPage,
+    AcomodacaoPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mapa Ocupação</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let acomodacao of acomodacoes" col-4>
+          <ion-card (click)="click(acomodacao)">
+            <div>
+              <label>Descricao:</label>
+              {{acomodacao.descricao}}
+            </div>
+            <div>
+              <label>Hóspede:</label>
+              {{acomodacao.hospede}}
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>
